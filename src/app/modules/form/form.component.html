@@ -1,0 +1,114 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+  <div class="form-row">
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" required />
+      <mat-error *ngIf="form.controls['name'].hasError('required')"
+        >Name is required</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" required email />
+      <mat-error *ngIf="form.controls['email'].hasError('required')"
+        >Email is required</mat-error
+      >
+      <mat-error *ngIf="form.controls['email'].hasError('email')"
+        >Invalid email format</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Enter your password</mat-label>
+      <input
+        matInput
+        formControlName="password"
+        [type]="hide ? 'password' : 'text'"
+        required
+      />
+      <mat-error *ngIf="form.controls['password'].hasError('required')"
+        >Password is required</mat-error
+      >
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <div class="form-row">
+    <mat-form-field appearance="outline">
+      <mat-label>Contact</mat-label>
+      <input matInput formControlName="contact" required />
+      <mat-error *ngIf="form.controls['contact'].hasError('required')"
+        >Contact is required</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Date of Birth</mat-label>
+      <input
+        matInput
+        [matDatepicker]="datePicker"
+        formControlName="dateOfBirth"
+        [value]="dateOfBirthControl?.value"
+      />
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="datePicker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #datePicker></mat-datepicker>
+      <mat-error *ngIf="dateOfBirthControl?.hasError('required')"
+        >Date of Birth is required</mat-error
+      >
+      <mat-error *ngIf="dateOfBirthControl?.hasError('invalidDate')"
+        >Invalid Date of Birth</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Gender</mat-label>
+      <mat-select formControlName="gender">
+        <mat-option value="male">Male</mat-option>
+        <mat-option value="female">Female</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="form-row">
+    <mat-form-field appearance="outline">
+      <mat-label>Address</mat-label>
+      <textarea matInput formControlName="address" required></textarea>
+      <mat-error *ngIf="form.controls['address'].hasError('required')"
+        >Address is required</mat-error
+      >
+    </mat-form-field>
+  </div>
+
+  <div class="form-row">
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="form.invalid"
+    >
+      Submit
+    </button>
+  </div>
+</form>
+
+<ng-template #dialogContent>
+  <h2 mat-dialog-title class="dialog-title">Confirm Submission</h2>
+  <mat-dialog-content>Are you sure you want to Submit?</mat-dialog-content>
+  <mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button color="primary" (click)="submitDialog()">
+      Confirm
+    </button>
+    <button mat-stroked-button color="warn" (click)="closeDialog()">
+      Cancel
+    </button>
+  </mat-dialog-actions>
+</ng-template>
