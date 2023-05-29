@@ -12,9 +12,16 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatCardModule } from '@angular/material/card';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, SidebarComponent],
+  declarations: [
+    HeaderComponent,
+    FooterComponent,
+    SidebarComponent,
+    ProfileComponent,
+  ],
   imports: [
     CommonModule,
     MatToolbarModule,
@@ -25,6 +32,7 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatListModule,
     MatMenuModule,
     MatBadgeModule,
+    MatCardModule,
   ],
   exports: [HeaderComponent, FooterComponent, SidebarComponent],
 })

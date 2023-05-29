@@ -6,6 +6,9 @@ import { PostsComponent } from './modules/posts/posts.component';
 import { FormComponent } from './modules/form/form.component';
 import { TableComponent } from './modules/table/table.component';
 import { CalendarComponent } from './modules/calendar/calendar.component';
+import { MapComponent } from './modules/map/map.component';
+import { ChartComponent } from './modules/chart/chart.component';
+import { ProfileComponent } from './shared/components/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -31,6 +34,18 @@ const routes: Routes = [
       {
         path: 'calendar',
         component: CalendarComponent,
+      },
+      {
+        path: 'map',
+        component: MapComponent,
+      },
+      {
+        path: 'chart',
+        component: ChartComponent,
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent,
       },
     ],
   },

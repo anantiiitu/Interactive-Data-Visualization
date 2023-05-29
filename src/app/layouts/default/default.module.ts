@@ -6,6 +6,8 @@ import { PostsComponent } from 'src/app/modules/posts/posts.component';
 import { FormComponent } from 'src/app/modules/form/form.component';
 import { TableComponent } from 'src/app/modules/table/table.component';
 import { CalendarComponent } from 'src/app/modules/calendar/calendar.component';
+import { MapComponent } from 'src/app/modules/map/map.component';
+import { ChartComponent } from 'src/app/modules/chart/chart.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
@@ -27,6 +29,10 @@ import { FullCalendarModule } from '@fullcalendar/angular';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
+
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 @NgModule({
   declarations: [
@@ -36,6 +42,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     FormComponent,
     TableComponent,
     CalendarComponent,
+    MapComponent,
+    ChartComponent,
   ],
   imports: [
     CommonModule,
@@ -61,6 +69,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatExpansionModule,
     MatGridListModule,
     MatProgressBarModule,
+    MatListModule,
+    MatCardModule,
+    LeafletModule,
   ],
 })
 export class DefaultModule {}

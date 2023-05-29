@@ -9,9 +9,9 @@
   <mat-divider></mat-divider>
   <mat-list-item (click)="navigateTo('/table')">Table</mat-list-item>
   <mat-divider></mat-divider>
-  <mat-list-item>Charts</mat-list-item>
+  <mat-list-item (click)="navigateTo('/chart')">Chart</mat-list-item>
   <mat-divider></mat-divider>
-  <mat-list-item>Posts</mat-list-item>
+  <mat-list-item (click)="navigateTo('/posts')">Posts</mat-list-item>
   <mat-divider></mat-divider>
 </mat-list>
 
@@ -36,8 +36,12 @@
     ><mat-icon>grid_on</mat-icon></mat-list-item
   >
   <mat-divider></mat-divider>
-  <mat-list-item><mat-icon>bar_chart</mat-icon></mat-list-item>
+  <mat-list-item (click)="navigateTo('/chart')"
+    ><mat-icon>bar_chart</mat-icon></mat-list-item
+  >
   <mat-divider></mat-divider>
-  <mat-list-item><mat-icon>subject</mat-icon></mat-list-item>
+  <mat-list-item (click)="navigateTo('/posts')"
+    ><mat-icon>subject</mat-icon></mat-list-item
+  >
   <mat-divider></mat-divider>
 </mat-nav-list>

@@ -1,0 +1,43 @@
+#map {
+  height: 100%; /* Set an appropriate height for the map container */
+}
+
+.map-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.map-frame {
+  //   border: 2px solid black;
+  height: 80vh;
+}
+
+.toggle-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #fff;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  z-index: 1000;
+}
+
+.toggle-button:hover {
+  background-color: #f5f5f5;
+}
+
+.toggle-button mat-icon {
+  font-size: 24px;
+  color: rgba(0, 0, 0, 0.54);
+}
