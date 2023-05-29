@@ -1,16 +1,43 @@
-<mat-list>
-  <mat-list-item (click)="navigateTo('/')">
-    <!-- <mat-icon class="mat-list-icon">home</mat-icon> -->
-    Dashboard</mat-list-item
-  >
+<mat-list *ngIf="sidebarOpen">
+  <mat-list-item (click)="navigateTo('/')"> Dashboard</mat-list-item>
   <mat-divider></mat-divider>
   <mat-list-item (click)="navigateTo('/form')">Form</mat-list-item>
   <mat-divider></mat-divider>
   <mat-list-item (click)="navigateTo('/map')">Map</mat-list-item>
   <mat-divider></mat-divider>
-  <mat-list-item>Calendar</mat-list-item>
+  <mat-list-item (click)="navigateTo('/calendar')">Calendar</mat-list-item>
   <mat-divider></mat-divider>
   <mat-list-item (click)="navigateTo('/table')">Table</mat-list-item>
   <mat-divider></mat-divider>
   <mat-list-item>Charts</mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>Posts</mat-list-item>
+  <mat-divider></mat-divider>
 </mat-list>
+
+<mat-nav-list *ngIf="!sidebarOpen">
+  <mat-list-item (click)="navigateTo('/')">
+    <mat-icon>dashboard</mat-icon></mat-list-item
+  >
+  <mat-divider></mat-divider>
+  <mat-list-item (click)="navigateTo('/form')"
+    ><mat-icon>description</mat-icon></mat-list-item
+  >
+  <mat-divider></mat-divider>
+  <mat-list-item (click)="navigateTo('/map')"
+    ><mat-icon>place</mat-icon></mat-list-item
+  >
+  <mat-divider></mat-divider>
+  <mat-list-item (click)="navigateTo('/calendar')"
+    ><mat-icon>event</mat-icon></mat-list-item
+  >
+  <mat-divider></mat-divider>
+  <mat-list-item (click)="navigateTo('/table')"
+    ><mat-icon>grid_on</mat-icon></mat-list-item
+  >
+  <mat-divider></mat-divider>
+  <mat-list-item><mat-icon>bar_chart</mat-icon></mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item><mat-icon>subject</mat-icon></mat-list-item>
+  <mat-divider></mat-divider>
+</mat-nav-list>

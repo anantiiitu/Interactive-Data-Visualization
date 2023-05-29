@@ -20,6 +20,7 @@ export class FormComponent {
   @ViewChild('dialogContent', { static: true })
   dialogContent!: TemplateRef<any>;
 
+  progressValue: number = 40;
   dialogRef!: MatDialogRef<any>;
   form: FormGroup;
   countries = countries;
@@ -39,6 +40,30 @@ export class FormComponent {
       address: ['', Validators.required],
       gender: [''],
     });
+  }
+
+  step = 0;
+
+  setStep(index: number) {
+    this.step = index;
+  }
+
+  nextStep() {
+    this.step++;
+    if (this.step === 1) {
+      this.progressValue = 70;
+    } else if (this.step === 2) {
+      this.progressValue = 100;
+    }
+  }
+
+  prevStep() {
+    this.step--;
+    if (this.step === 1) {
+      this.progressValue = 70;
+    } else if (this.step === 0) {
+      this.progressValue = 40;
+    }
   }
 
   onSubmit() {

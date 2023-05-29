@@ -5,7 +5,7 @@ import { DashboardComponent } from 'src/app/modules/dashboard/dashboard.componen
 import { PostsComponent } from 'src/app/modules/posts/posts.component';
 import { FormComponent } from 'src/app/modules/form/form.component';
 import { TableComponent } from 'src/app/modules/table/table.component';
-
+import { CalendarComponent } from 'src/app/modules/calendar/calendar.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
@@ -20,6 +20,14 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 @NgModule({
   declarations: [
     DefaultComponent,
@@ -27,6 +35,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     PostsComponent,
     FormComponent,
     TableComponent,
+    CalendarComponent,
   ],
   imports: [
     CommonModule,
@@ -45,6 +54,13 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatDatepickerModule,
     MatDialogModule,
     MatSnackBarModule,
+    MatSortModule,
+    MatTableModule,
+    MatPaginatorModule,
+    FullCalendarModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatProgressBarModule,
   ],
 })
 export class DefaultModule {}

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-sidebar',
@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
+  @Input() sidebarOpen: boolean = false;
   constructor(private router: Router) {}
 
   navigateTo(route: string): void {

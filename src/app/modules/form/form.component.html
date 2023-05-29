@@ -1,103 +1,151 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
-  <div class="form-row">
-    <mat-form-field appearance="outline">
-      <mat-label>Name</mat-label>
-      <input matInput formControlName="name" required />
-      <mat-error *ngIf="form.controls['name'].hasError('required')"
-        >Name is required</mat-error
-      >
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>Email</mat-label>
-      <input matInput formControlName="email" required email />
-      <mat-error *ngIf="form.controls['email'].hasError('required')"
-        >Email is required</mat-error
-      >
-      <mat-error *ngIf="form.controls['email'].hasError('email')"
-        >Invalid email format</mat-error
-      >
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>Enter your password</mat-label>
-      <input
-        matInput
-        formControlName="password"
-        [type]="hide ? 'password' : 'text'"
-        required
-      />
-      <mat-error *ngIf="form.controls['password'].hasError('required')"
-        >Password is required</mat-error
-      >
-      <button
-        mat-icon-button
-        matSuffix
-        (click)="hide = !hide"
-        [attr.aria-label]="'Hide password'"
-        [attr.aria-pressed]="hide"
-      >
-        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-      </button>
-    </mat-form-field>
-  </div>
-  <div class="form-row">
-    <mat-form-field appearance="outline">
-      <mat-label>Contact</mat-label>
-      <input matInput formControlName="contact" required />
-      <mat-error *ngIf="form.controls['contact'].hasError('required')"
-        >Contact is required</mat-error
-      >
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>Date of Birth</mat-label>
-      <input
-        matInput
-        [matDatepicker]="datePicker"
-        formControlName="dateOfBirth"
-        [value]="dateOfBirthControl?.value"
-      />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="datePicker"
-      ></mat-datepicker-toggle>
-      <mat-datepicker #datePicker></mat-datepicker>
-      <mat-error *ngIf="dateOfBirthControl?.hasError('required')"
-        >Date of Birth is required</mat-error
-      >
-      <mat-error *ngIf="dateOfBirthControl?.hasError('invalidDate')"
-        >Invalid Date of Birth</mat-error
-      >
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Gender</mat-label>
-      <mat-select formControlName="gender">
-        <mat-option value="male">Male</mat-option>
-        <mat-option value="female">Female</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
-  <div class="form-row">
-    <mat-form-field appearance="outline">
-      <mat-label>Address</mat-label>
-      <textarea matInput formControlName="address" required></textarea>
-      <mat-error *ngIf="form.controls['address'].hasError('required')"
-        >Address is required</mat-error
-      >
-    </mat-form-field>
-  </div>
-
-  <div class="form-row">
-    <button
-      mat-raised-button
-      color="primary"
-      type="submit"
-      [disabled]="form.invalid"
+  <mat-accordion class="example-headers-align">
+    <mat-expansion-panel
+      [expanded]="step === 0"
+      (opened)="setStep(0)"
+      hideToggle
     >
-      Submit
-    </button>
-  </div>
+      <mat-expansion-panel-header>
+        <mat-panel-title> Personal data </mat-panel-title>
+        <mat-panel-description>
+          Type your name and age
+          <mat-icon>account_circle</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" required />
+        <mat-error *ngIf="form.controls['name'].hasError('required')"
+          >Name is required</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Date of Birth</mat-label>
+        <input
+          matInput
+          [matDatepicker]="datePicker"
+          formControlName="dateOfBirth"
+          [value]="dateOfBirthControl?.value"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="datePicker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #datePicker></mat-datepicker>
+        <mat-error *ngIf="dateOfBirthControl?.hasError('required')"
+          >Date of Birth is required</mat-error
+        >
+        <mat-error *ngIf="dateOfBirthControl?.hasError('invalidDate')"
+          >Invalid Date of Birth</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Gender</mat-label>
+        <mat-select formControlName="gender">
+          <mat-option value="male">Male</mat-option>
+          <mat-option value="female">Female</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-action-row>
+        <button mat-button color="primary" (click)="nextStep()">Next</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)">
+      <mat-expansion-panel-header>
+        <mat-panel-title> Credentials </mat-panel-title>
+        <mat-panel-description>
+          Enter your Credentials
+          <mat-icon>lock</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" required email />
+        <mat-error *ngIf="form.controls['email'].hasError('required')"
+          >Email is required</mat-error
+        >
+        <mat-error *ngIf="form.controls['email'].hasError('email')"
+          >Invalid email format</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Enter your password</mat-label>
+        <input
+          matInput
+          formControlName="password"
+          [type]="hide ? 'password' : 'text'"
+          required
+        />
+        <mat-error *ngIf="form.controls['password'].hasError('required')"
+          >Password is required</mat-error
+        >
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <mat-action-row>
+        <button mat-button color="warn" (click)="prevStep()">Previous</button>
+        <button mat-button color="primary" (click)="nextStep()">Next</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)">
+      <mat-expansion-panel-header>
+        <mat-panel-title> Contact Details </mat-panel-title>
+        <mat-panel-description>
+          Enter your contact details
+          <mat-icon>phone</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Contact</mat-label>
+        <input matInput formControlName="contact" required />
+        <mat-error *ngIf="form.controls['contact'].hasError('required')"
+          >Contact is required</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Address</mat-label>
+        <textarea matInput formControlName="address" required></textarea>
+        <mat-error *ngIf="form.controls['address'].hasError('required')"
+          >Address is required</mat-error
+        >
+      </mat-form-field>
+      <mat-datepicker #picker></mat-datepicker>
+
+      <mat-action-row>
+        <button mat-button color="warn" (click)="prevStep()">Previous</button>
+        <button
+          mat-button
+          color="primary"
+          type="submit"
+          (click)="nextStep()"
+          [disabled]="form.invalid"
+        >
+          Submit
+        </button>
+      </mat-action-row>
+    </mat-expansion-panel>
+    <mat-progress-bar
+      mode="determinate"
+      [value]="progressValue"
+    ></mat-progress-bar>
+  </mat-accordion>
 </form>
 
 <ng-template #dialogContent>

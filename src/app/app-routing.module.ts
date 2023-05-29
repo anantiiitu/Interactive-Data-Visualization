@@ -5,6 +5,7 @@ import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { PostsComponent } from './modules/posts/posts.component';
 import { FormComponent } from './modules/form/form.component';
 import { TableComponent } from './modules/table/table.component';
+import { CalendarComponent } from './modules/calendar/calendar.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
       {
         path: 'table',
         component: TableComponent,
+      },
+      {
+        path: 'calendar',
+        component: CalendarComponent,
       },
     ],
   },

@@ -1,6 +1,23 @@
-<div>
-  <highcharts-chart
-    [Highcharts]="Highcharts"
-    [options]="chartOptions"
-  ></highcharts-chart>
-</div>
+<mat-grid-list cols="4" rowHeight="300px">
+  <mat-grid-tile [colspan]="3" [rowspan]="1"
+    ><highcharts-chart
+      [Highcharts]="Highcharts"
+      [options]="chartOptions"
+    ></highcharts-chart
+  ></mat-grid-tile>
+  <mat-grid-tile
+    [colspan]="1"
+    [rowspan]="2"
+    [style.background]="'lightblue'"
+  ></mat-grid-tile>
+  <mat-grid-tile
+    [colspan]="1"
+    [rowspan]="1"
+    [style.background]="'lightgreen'"
+  ></mat-grid-tile>
+  <mat-grid-tile
+    [colspan]="2"
+    [rowspan]="1"
+    [style.background]="'lightpink'"
+  ></mat-grid-tile>
+</mat-grid-list>

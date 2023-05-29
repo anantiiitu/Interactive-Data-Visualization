@@ -17,5 +17,30 @@
     <mat-icon>favorite</mat-icon>
   </button>
 
+  <button
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with notifications icon"
+    matBadge="7"
+    matBadgeColor="accent"
+    matBadgeSize="small"
+    [matMenuTriggerFor]="belowMenu"
+  >
+    <mat-icon>notifications</mat-icon>
+  </button>
+
+  <button
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with person icon"
+  >
+    <mat-icon>person</mat-icon>
+  </button>
+
   <mat-slide-toggle></mat-slide-toggle>
 </mat-toolbar>
+
+<mat-menu #belowMenu="matMenu" yPosition="below" class="custom-menu">
+  <a mat-menu-item>Hello, you have a notification</a>
+  <a mat-menu-item>Another, notification</a>
+</mat-menu>
