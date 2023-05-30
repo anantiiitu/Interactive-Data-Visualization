@@ -1,23 +1,38 @@
 <mat-grid-list cols="4" rowHeight="300px">
-  <mat-grid-tile [colspan]="3" [rowspan]="1"
+  <mat-grid-tile [colspan]="4"
     ><highcharts-chart
       [Highcharts]="Highcharts"
       [options]="chartOptions"
     ></highcharts-chart
   ></mat-grid-tile>
-  <mat-grid-tile
-    [colspan]="1"
-    [rowspan]="2"
-    [style.background]="'lightblue'"
+  <mat-grid-tile [colspan]="1" [rowspan]="1" [style.background]="'lightblue'">
+    <!-- Profile details code here -->
+
+    <div class="progress-container">
+      <mat-progress-spinner
+        class="progress-spinner"
+        [color]="'primary'"
+        [mode]="'determinate'"
+        [value]="25"
+      ></mat-progress-spinner>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="2" [rowspan]="1" [style.background]="'lightgreen'">
+    <div class="progress-container">
+      <mat-progress-spinner
+        class="progress-spinner"
+        [color]="'primary'"
+        [mode]="'determinate'"
+        [value]="50"
+      ></mat-progress-spinner></div
   ></mat-grid-tile>
-  <mat-grid-tile
-    [colspan]="1"
-    [rowspan]="1"
-    [style.background]="'lightgreen'"
-  ></mat-grid-tile>
-  <mat-grid-tile
-    [colspan]="2"
-    [rowspan]="1"
-    [style.background]="'lightpink'"
+  <mat-grid-tile [colspan]="1" [rowspan]="1" [style.background]="'lightpink'">
+    <div class="progress-container">
+      <mat-progress-spinner
+        class="progress-spinner"
+        [color]="'primary'"
+        [mode]="'determinate'"
+        [value]="75"
+      ></mat-progress-spinner></div
   ></mat-grid-tile>
 </mat-grid-list>

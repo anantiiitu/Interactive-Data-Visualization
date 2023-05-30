@@ -40,3 +40,10 @@
   font-size: 12px;
   color: #757575; /* Adjust the time text color */
 }
+
+.mat-mdc-slide-toggle {
+  --mdc-switch-unselected-handle-color: #ff4081;
+  --mdc-switch-unselected-hover-handle-color: #ff4081;
+  --mdc-switch-unselected-pressed-handle-color: #ff4081;
+  --mdc-switch-unselected-focus-handle-color: #ff4081;
+}

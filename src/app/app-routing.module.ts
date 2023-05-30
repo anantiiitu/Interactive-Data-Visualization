@@ -9,14 +9,30 @@ import { CalendarComponent } from './modules/calendar/calendar.component';
 import { MapComponent } from './modules/map/map.component';
 import { ChartComponent } from './modules/chart/chart.component';
 import { ProfileComponent } from './shared/components/profile/profile.component';
+import { LoginComponent } from './shared/components/login/login.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'home',
+    component: DefaultComponent,
+    children: [
+      {
+        path: '',
+        component: DashboardComponent,
+      },
+    ],
+  },
   {
     path: '',
     component: DefaultComponent,
     children: [
       {
-        path: '',
+        path: 'dashboard',
         component: DashboardComponent,
       },
       {
@@ -49,6 +65,7 @@ const routes: Routes = [
       },
     ],
   },
+  { path: '**', redirectTo: '/login' },
 ];
 
 @NgModule({

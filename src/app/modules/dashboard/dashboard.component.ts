@@ -20,7 +20,7 @@ export class DashboardComponent {
   Highcharts: typeof Highcharts = Highcharts;
   chartOptions: Options = {
     chart: {
-      width: 400,
+      width: 1050,
       height: 300,
     },
     title: {

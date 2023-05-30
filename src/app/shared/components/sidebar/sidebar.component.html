@@ -1,5 +1,5 @@
 <mat-list *ngIf="sidebarOpen">
-  <mat-list-item (click)="navigateTo('/')"> Dashboard</mat-list-item>
+  <mat-list-item (click)="navigateTo('/dashboard')"> Dashboard</mat-list-item>
   <mat-divider></mat-divider>
   <mat-list-item (click)="navigateTo('/form')">Form</mat-list-item>
   <mat-divider></mat-divider>
@@ -16,7 +16,7 @@
 </mat-list>
 
 <mat-nav-list *ngIf="!sidebarOpen">
-  <mat-list-item (click)="navigateTo('/')">
+  <mat-list-item (click)="navigateTo('/dashboard')">
     <mat-icon>dashboard</mat-icon></mat-list-item
   >
   <mat-divider></mat-divider>
