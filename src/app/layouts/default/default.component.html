@@ -1,4 +1,7 @@
-<app-header (openSidebarEvent)="openSidebar()"></app-header>
+<app-header
+  [class.dark-mode]="isDarkMode"
+  (openSidebarEvent)="openSidebar()"
+></app-header>
 
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer mode="side" opened>

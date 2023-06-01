@@ -1,5 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { DarkModeService } from '../../services/dark-mode.service';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -8,9 +10,16 @@ import { Router } from '@angular/router';
 export class HeaderComponent {
   @Output() openSidebarEvent = new EventEmitter<void>();
 
-  constructor(private router: Router) {}
+  isDarkMode = false;
+  isIndigoPink: boolean = true;
+
+  constructor(private router: Router, private darkMode: DarkModeService) {}
   navigateTo(route: string): void {
     this.router.navigateByUrl(route);
+  }
+
+  toggleTheme(): void {
+    this.darkMode.toggleTheme();
   }
 
   openSidebar(): void {

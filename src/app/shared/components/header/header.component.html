@@ -38,7 +38,15 @@
     <mat-icon>person</mat-icon>
   </button>
 
-  <mat-slide-toggle color="primary"></mat-slide-toggle>
+  <!-- <button mat-icon-button (click)="toggleTheme()">
+    <mat-icon>{{ isIndigoPink ? "brightness_4" : "brightness_5" }}</mat-icon>
+  </button> -->
+
+  <mat-slide-toggle
+    color="primary"
+    [(ngModel)]="isIndigoPink"
+    (change)="toggleTheme()"
+  ></mat-slide-toggle>
 </mat-toolbar>
 
 <mat-menu #notificationMenu="matMenu" yPosition="below" class="custom-menu">
